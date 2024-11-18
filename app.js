@@ -1,4 +1,23 @@
-var createError = require('http-errors');
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+const port = 80;
+app.listen(port, () => console.log('Servidor rodando na porta 80')
+)
+
+module.exports = app;
+
+
+
+
+
+/*var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -38,4 +57,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = app;*/
