@@ -2,16 +2,34 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+// Local Modules
+//const myRoute = require('./routes/myRoute.js');
+
 const app = express();
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
 
-const port = 80;
-app.listen(port, () => console.log('Servidor rodando na porta 80')
-)
+// Routes will be written here
+//app.use('/route', myRoute);
+
+app.listen(PORT, (error) =>{
+  if(!error)
+      console.log("Server is Successfully Running, 
+                 and App is listening on port "+ PORT)
+  else 
+      console.log("Error occurred, server can't start", error);
+  }
+);
+
+const connectionString = process.env.MONGO_URI; 
+mongoose.connect(connectionString)
+
 
 module.exports = app;
+
+
 
 
 
